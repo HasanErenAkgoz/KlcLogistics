@@ -1,0 +1,130 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "KlcLogistics": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/klc-logistics",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css",
+              "src/assets/css/all.min.css",
+              "src/assets/css/animate.min.css",
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/custom-animate.css",
+              "src/assets/css/icomoon.css",
+              "src/assets/css/jquery.magnific-popup.css",
+              "src/assets/css/nice-select.css",
+              "src/assets/css/nouislider.min.css",
+              "src/assets/css/nouislider.pips.css",
+              "src/assets/css/odometer.css",
+              "src/assets/css/slick.css",
+              "src/assets/css/swiper.min.css",
+              "src/assets/css/style.css",
+              "src/assets/css/color-2.css",
+              "src/assets/css/responsive.css"
+            ],
+
+            "scripts": [
+              "src/assets/js/jquery-3.6.0.min.js",
+              "src/assets/js/ajax-form.js",
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/jquery.appear.js",
+              "src/assets/js/jquery.odometer.min.js",
+              "src/assets/js/jquery.nice-select.min.js",
+              "src/assets/js/jquery-sidebar-content.js",
+              "src/assets/js/nouislider.min.js",
+              "src/assets/js/slick.min.js",
+              "src/assets/js/swiper.min.js",
+              "src/assets/js/wow.min.js",
+              "src/assets/js/main.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "KlcLogistics:build:production"
+            },
+            "development": {
+              "browserTarget": "KlcLogistics:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "KlcLogistics:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+
+            ],
+            "scripts": [
+
+            ]
+          }
+        }
+      }
+    }
+  }
+}
